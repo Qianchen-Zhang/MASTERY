@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/setting.unity
     guid: 3e55aaedace459048861becdf180ffe5
+  - enabled: 1
+    path: Assets/Scenes/waitingHall.unity
+    guid: 1818436040032d1428fe67d3d0a8e028
   m_configObjects: {}
