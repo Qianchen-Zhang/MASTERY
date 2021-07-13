@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 368
-    y: 193
+    x: 758
+    y: 271
     width: 1505
     height: 991
   m_ShowMode: 4
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 2469
+  controlID: 17
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 2470
+  controlID: 26
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 2471
+  controlID: 27
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -299,8 +299,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 648
-    y: 223
+    x: 1038
+    y: 301
     width: 867
     height: 539
   m_ViewDataDictionary: {fileID: 0}
@@ -388,8 +388,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368
-    y: 223
+    x: 758
+    y: 301
     width: 279
     height: 539
   m_ViewDataDictionary: {fileID: 0}
@@ -398,7 +398,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 567bffffa47dffff687effff847effffa07effffd87effff047fffff1c84ffff2687ffff4c88ffff1896ffff3498ffff389dffff749dffff7aa4ffffc4a7ffff9aacffffd4acffffc0bdffff46bfffff98c4fffff0d4ffff30dbffff98dbffff02f9ffff20f9ffff90f9ffff84faffff94510000ec510000fc5100000e540000f4570000545800000e5f0000
+      m_ExpandedIDs: 1cf8ffff04f9ffff52fbffff9c400000fc400000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -558,8 +558,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368
-    y: 783
+    x: 758
+    y: 861
     width: 1148
     height: 360
   m_ViewDataDictionary: {fileID: 0}
@@ -584,14 +584,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\zzz\Desktop\Game_intership\Game_stage
+  m_LastProjectPath: C:\Users\zzz\Desktop\MASTERY
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c0490000
-    m_LastClickedID: 18880
-    m_ExpandedIDs: 00000000be490000fc5f0000b2600000be600000cc600000ce60000000ca9a3b
+    m_SelectedIDs: fc3d0000
+    m_LastClickedID: 15868
+    m_ExpandedIDs: 00000000f63d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be49000000ca9a3b
+    m_ExpandedIDs: 00000000f63d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,8 +695,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1835
-    y: 737
+    x: 758
+    y: 861
     width: 1148
     height: 360
   m_ViewDataDictionary: {fileID: 0}
@@ -720,8 +720,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1517
-    y: 223
+    x: 1907
+    y: 301
     width: 355
     height: 920
   m_ViewDataDictionary: {fileID: 0}
