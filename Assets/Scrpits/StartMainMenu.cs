@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class StartMainMenu : MonoBehaviour
 {
     public Image mask;
     private float alpha;
     public GameObject maskObject;
+    public GameObject userName;
+    public GameObject PassWord;
+    public GameObject logMessage;
 
     public void Start()
     {
@@ -33,7 +37,42 @@ public class StartMainMenu : MonoBehaviour
     {      
         StartCoroutine(FadeOut("setting"));        
     }
-    
+
+    public void LogInButton()
+    {
+        bool userNameFull = false;
+        bool passWordFull = false;
+        if (!userName.GetComponent<TMP_InputField>().text.Equals(""))
+        {
+            userNameFull = true;
+            PlayerPrefs.SetString("UserName", userName.GetComponent<TMP_InputField>().text);
+            Debug.LogWarning("You are input your name!");
+        }
+        else
+        {
+            Debug.LogWarning("You are not input your name!");
+        }
+        if (!PassWord.GetComponent<TMP_InputField>().text.Equals(""))
+        {
+            passWordFull = true;
+            PlayerPrefs.SetString("PassWord", PassWord.GetComponent<TMP_InputField>().text);
+        }
+        else
+        {
+            Debug.LogWarning("You are not input your passWord!");
+        }
+
+        if (userNameFull && passWordFull)
+        {
+            StartCoroutine(FadeOut("waitingHall"));
+        }
+
+
+
+    }
+
+
+
 
     IEnumerator FadeIn()
     {
