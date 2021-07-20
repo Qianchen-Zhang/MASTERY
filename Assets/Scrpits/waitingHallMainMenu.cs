@@ -25,6 +25,7 @@ public class waitingHallMainMenu : MonoBehaviour
         resetPlayerButtonName();
         player1Name.text = PlayerPrefs.GetString("UserName");
         playerPosition = 1;
+        PlayerPrefs.SetInt("userPosition1", 1);
 
     }
 
@@ -41,24 +42,28 @@ public class waitingHallMainMenu : MonoBehaviour
         resetPlayerButtonName();
         player1Name.text = PlayerPrefs.GetString("UserName");
         playerPosition = 1;
+        PlayerPrefs.SetInt("userPosition1", 1);
     }
     public void Player2Button()
     {
         resetPlayerButtonName();
         player2Name.text = PlayerPrefs.GetString("UserName");
         playerPosition = 2;
+        PlayerPrefs.SetInt("userPosition2", 2);
     }
     public void Player3Button()
     {
         resetPlayerButtonName();
         player3Name.text = PlayerPrefs.GetString("UserName");
         playerPosition = 3;
+        PlayerPrefs.SetInt("userPosition3", 3);
     }
     public void Player4Button()
     {
         resetPlayerButtonName();
         player4Name.text = PlayerPrefs.GetString("UserName");
         playerPosition = 4;
+        PlayerPrefs.SetInt("userPosition4", 4);
     }
 
     public void resetPlayerButtonName()

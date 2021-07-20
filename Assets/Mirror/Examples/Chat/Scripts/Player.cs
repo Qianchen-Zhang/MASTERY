@@ -16,6 +16,7 @@ namespace Mirror.Examples.Chat
                 RpcReceive(message.Trim());
         }
 
+        
         [ClientRpc]
         public void RpcReceive(string message)
         {

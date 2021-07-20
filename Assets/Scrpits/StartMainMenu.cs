@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class StartMainMenu : MonoBehaviour
 {
     public Image mask;
@@ -97,7 +98,18 @@ public class StartMainMenu : MonoBehaviour
             mask.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-        SceneManager.LoadScene(sceneName);
+
+        //if (sceneName.Equals("waitingHall"))
+        //{
+           // NetworkManager.singleton.ServerChangeScene("waitingHall");
+        //}
+        //else
+        //{
+            SceneManager.LoadScene(sceneName); 
+        //}
+        
+
+
     }
 
     IEnumerator FadeOut()

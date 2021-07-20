@@ -1,11 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - StartMainMenu
     - lobbyWindow
-    - playerScrpit
+    - waintingHallPlayerScrpit
     - waitingHallMainMenu
-    Mirror.Components.dll:
-    - Mirror.NetworkTransform
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManager
@@ -42,7 +41,7 @@ ScriptsOnlyBuild:
     com.unity.quicksearch.dll:
     - Unity.QuickSearch.SearchDatabase
   sceneClasses:
-    Assets/Scenes/waitingHall.unity:
+    Assets/Scenes/start.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -70,57 +69,116 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1482}
     - Class: 114
+      Script: {instanceID: 1568}
+    - Class: 114
+      Script: {instanceID: 1662}
+    - Class: 114
+      Script: {instanceID: 1814}
+    - Class: 114
+      Script: {instanceID: 2128}
+    - Class: 114
+      Script: {instanceID: 2480}
+    - Class: 114
+      Script: {instanceID: 2598}
+    - Class: 114
+      Script: {instanceID: 2640}
+    - Class: 114
+      Script: {instanceID: 3016}
+    - Class: 114
+      Script: {instanceID: 3122}
+    - Class: 114
+      Script: {instanceID: 4104}
+    - Class: 114
+      Script: {instanceID: 4218}
+    - Class: 114
+      Script: {instanceID: 4236}
+    - Class: 114
+      Script: {instanceID: 4550}
+    - Class: 114
+      Script: {instanceID: 4564}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/waitingHall.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1480}
+    - Class: 114
+      Script: {instanceID: 1482}
+    - Class: 114
       Script: {instanceID: 1492}
     - Class: 114
       Script: {instanceID: 1568}
     - Class: 114
       Script: {instanceID: 1662}
     - Class: 114
-      Script: {instanceID: 1812}
+      Script: {instanceID: 1814}
     - Class: 114
-      Script: {instanceID: 2124}
+      Script: {instanceID: 2334}
     - Class: 114
-      Script: {instanceID: 2474}
+      Script: {instanceID: 2480}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 2634}
+      Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 3010}
+      Script: {instanceID: 3016}
     - Class: 114
-      Script: {instanceID: 3020}
+      Script: {instanceID: 3026}
     - Class: 114
-      Script: {instanceID: 3114}
+      Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 3122}
     - Class: 114
-      Script: {instanceID: 3314}
+      Script: {instanceID: 3220}
     - Class: 114
-      Script: {instanceID: 3438}
+      Script: {instanceID: 3322}
     - Class: 114
-      Script: {instanceID: 3628}
+      Script: {instanceID: 3446}
     - Class: 114
-      Script: {instanceID: 3966}
+      Script: {instanceID: 3636}
     - Class: 114
-      Script: {instanceID: 4096}
+      Script: {instanceID: 3974}
     - Class: 114
-      Script: {instanceID: 4112}
+      Script: {instanceID: 4120}
     - Class: 114
-      Script: {instanceID: 4210}
+      Script: {instanceID: 4218}
     - Class: 114
-      Script: {instanceID: 4228}
+      Script: {instanceID: 4522}
     - Class: 114
-      Script: {instanceID: 4346}
-    - Class: 114
-      Script: {instanceID: 4514}
-    - Class: 114
-      Script: {instanceID: 4542}
-    - Class: 114
-      Script: {instanceID: 4660}
-    - Class: 114
-      Script: {instanceID: 35834}
-    - Class: 114
-      Script: {instanceID: 59748}
+      Script: {instanceID: 4668}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -230,6 +288,12 @@ ScriptsOnlyBuild:
     className: Projectile
   - hash:
       serializedVersion: 2
+      Hash: c5504f3781712f9d7be7bc0ab96f0f67
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: playerScript
+  - hash:
+      serializedVersion: 2
       Hash: f3a8ccc18ad656ac8993b34a1b30984f
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
@@ -320,6 +384,12 @@ ScriptsOnlyBuild:
     className: PlayerController
   - hash:
       serializedVersion: 2
+      Hash: 45a273c99462efe8b9ef1de57cce65cc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: sceneScrpit
+  - hash:
+      serializedVersion: 2
       Hash: 192ca9716d03752ea1d90a78bc2daac9
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
@@ -390,6 +460,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleMatch
     className: RoomGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 7722a9d3c631208c1a82aa46c277381f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: waintingHallPlayerScrpit
   - hash:
       serializedVersion: 2
       Hash: c56a9426da8f5d94d45fd88dc881ef1b
@@ -612,6 +688,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: a2f4ab9bd12e5d9e272128b9475f23c8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lobbyWindow
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
@@ -1236,19 +1318,8 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
-  - hash:
-      serializedVersion: 2
-      Hash: a502623c627e1ced614ca29aeee9f5ff
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: lobbyWindow
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: playerScrpit
   platform: 19
   scenePathNames:
+  - Assets/Scenes/start.unity
   - Assets/Scenes/waitingHall.unity
   playerPath: C:/Users/zzz/Desktop/MASTERY/test/Game_stage.exe
