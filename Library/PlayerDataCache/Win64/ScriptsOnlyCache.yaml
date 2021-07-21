@@ -462,7 +462,7 @@ ScriptsOnlyBuild:
     className: RoomGUI
   - hash:
       serializedVersion: 2
-      Hash: 7722a9d3c631208c1a82aa46c277381f
+      Hash: fab5953d40b58be1774cd394a8e44201
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: waintingHallPlayerScrpit
@@ -690,7 +690,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: a2f4ab9bd12e5d9e272128b9475f23c8
+      Hash: b977f6d3037cf22a1b175ec247896a62
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: lobbyWindow

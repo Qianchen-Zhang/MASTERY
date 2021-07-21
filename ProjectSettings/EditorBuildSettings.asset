@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/waitingHall.unity
     guid: 1818436040032d1428fe67d3d0a8e028
   - enabled: 0
-    path: Assets/Scenes/map1.unity
+    path: Assets/Scenes/maps/map1.unity
     guid: 71fd14422c331e54499c5a0ae7d659b1
   - enabled: 0
     path: Assets/Mirror/Examples/Pong/Scenes/Scene.unity
