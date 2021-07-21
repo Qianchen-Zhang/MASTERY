@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using Mirror;
 
-
 public class lobbyWindow : MonoBehaviour
 {
     public int maxMessage = 25;
@@ -20,6 +19,8 @@ public class lobbyWindow : MonoBehaviour
     public GameObject chatPanel, textObject;
     public TMP_Text userName;
     public TMP_Text player1, player2, player3, player4;
+    public GameObject player1Btn, player2Btn, player3Btn, player4Btn;
+    public Sprite[] img = new Sprite[5];
 
     public Color32 playerMessage, info, myMessage, otherPlayerMessage;
 
@@ -81,24 +82,28 @@ public class lobbyWindow : MonoBehaviour
                         { 
                             player4.text = message;
                             this.whPs.position4 = true;
+                            this.whPs.player4Img = 1;
                         }
                     }
                     else
                     {
                         player3.text = message;
                         this.whPs.position3 = true;
+                        this.whPs.player3Img = 1;
                     }
                 }
                 else
                 {
                     player2.text = message;
                     this.whPs.position2 = true;
+                    this.whPs.player2Img = 1;
                 }
             }
             else
             {
                 player1.text = message;
                 this.whPs.position1 = true;
+                this.whPs.player1Img = 1;
             }
             //this.whPs.CmdSetupPlayer(this.whPs.userName);
         }

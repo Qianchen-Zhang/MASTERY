@@ -583,6 +583,16 @@ MonoBehaviour:
   player2: {fileID: 1767435325}
   player3: {fileID: 36362872}
   player4: {fileID: 1545814536}
+  player1Btn: {fileID: 1234741814}
+  player2Btn: {fileID: 2048528699}
+  player3Btn: {fileID: 93221114}
+  player4Btn: {fileID: 1004834129}
+  img:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
+  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
+  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
+  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
   playerMessage:
     serializedVersion: 2
     rgba: 4278190335
@@ -2393,15 +2403,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9245283, g: 0.030526895, b: 0.030526895, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
