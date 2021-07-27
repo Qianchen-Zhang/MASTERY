@@ -5,11 +5,12 @@ using Mirror;
 using System;
 using UnityEngine.UI;
 
+
 public class waintingHallPlayerScrpit : NetworkBehaviour
 {
 
     [SyncVar]
-    private string hostName;
+    public string hostName;
 
     public static event Action<waintingHallPlayerScrpit, string> OnMessage;
     //public static event Action<waintingHallPlayerScrpit, string> OnPlayerSetup;
@@ -26,6 +27,9 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
 
     [SyncVar(hook = nameof(setupPlayerImg))]
     public int player1Img, player2Img, player3Img, player4Img;
+
+    
+    public bool p1Ready, p2Ready, p3Ready, p4Ready;
 
     
 
@@ -68,24 +72,28 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
                         {
                             position4 = true;
                             player4Name = str;
+                            p4Ready = false;
                         }
                     }
                     else
                     {
                         position3 = true;
                         player3Name = str;
+                        p3Ready = false;
                     }
                 }
                 else
                 {
                     position2 = true;
                     player2Name = str;
+                    p2Ready = false;
                 }
             }
             else
             {
                 position1 = true;
                 player1Name = str;
+                p1Ready = false;
             }
         }
     }
@@ -112,7 +120,11 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
                 player4Img = i;
             }
         }
-       
+
+        if (str.Equals("ishost"))
+        {
+            player1Img = i;
+        }
     }
 
     
@@ -147,12 +159,72 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
 
     }
 
+    //[Command]
+    public void CmdReady(string str)
+    {
+        if (str.Equals(player1Name))
+        {
+            if(p1Ready == false)
+            {
+                p1Ready = true;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f,0f,0f);
+            }
+            else
+            {
+                p1Ready = false;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+            }
+           
+        }
+        if (str.Equals(player2Name))
+        {
+            if (p2Ready == false)
+            {
+                p2Ready = true;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 0f, 0f);
+            }
+            else
+            {
+                p2Ready = false;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+            }
+        }
+        if (str.Equals(player3Name))
+        {
+            if (p3Ready == false)
+            {
+                p3Ready = true;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 0f, 0f);
+            }
+            else
+            {
+                p3Ready = false;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+            }
+        }
+        if (str.Equals(player4Name))
+        {
+            if (p4Ready == false)
+            {
+                p4Ready = true;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 0f, 0f);
+            }
+            else
+            {
+                p4Ready = false;
+                lbwindow.startBtn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+            }
+        }
+    }
+
     public void setupPlayer(string oldStr, string newStr)
     {
-        lbwindow.player1.text = player1Name;
-        lbwindow.player2.text = player2Name;
-        lbwindow.player3.text = player3Name;
-        lbwindow.player4.text = player4Name;
+       
+            lbwindow.player1.text = player1Name;
+            lbwindow.player2.text = player2Name;
+            lbwindow.player3.text = player3Name;
+            lbwindow.player4.text = player4Name;
+        
     }
 
     public void setupPlayerImg(int oldInt, int newInt)
@@ -161,8 +233,43 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
         lbwindow.player2Btn.GetComponent<Image>().sprite = lbwindow.img[player2Img];
         lbwindow.player3Btn.GetComponent<Image>().sprite = lbwindow.img[player3Img];
         lbwindow.player4Btn.GetComponent<Image>().sprite = lbwindow.img[player4Img];
+        if(player1Img > 0)
+        {
+            lbwindow.player1Btn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+        }
+        else
+        {
+            lbwindow.player1Btn.GetComponent<Image>().color = new Color(0f, 0f, 0f ,0f);
+        }
 
-        
+        if (player2Img > 0)
+        {
+            lbwindow.player2Btn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+        }
+        else
+        {
+            lbwindow.player2Btn.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0f);
+        }
+
+        if (player3Img > 0)
+        {
+            lbwindow.player3Btn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+        }
+        else
+        {
+            lbwindow.player3Btn.GetComponent<Image>().color = new Color(0f,0f,0f,0f);
+        }
+
+        if (player4Img > 0)
+        {
+            lbwindow.player4Btn.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+        }
+        else
+        {
+            lbwindow.player4Btn.GetComponent<Image>().color = new Color(0f, 0f, 0f,0f);
+        }
+
+
 
     }
 
@@ -190,6 +297,12 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
         OnMessage?.Invoke(this,str);
     }
 
+
+    [ClientRpc]
+    public void RpcGamePrefabs()
+    {
+        lbwindow.net.playerPrefab = lbwindow.gamePlayerPrefab;
+    }
     
     
 
@@ -204,6 +317,23 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
+        if (isLocalPlayer)
+        {
+            if (!userName.Equals(hostName))
+            {
+                //waitingHallMainMenu wHMM = FindObjectOfType<waitingHallMainMenu>();
+                lbwindow.StartBtn.text = "Ready";
+                //lbwindow.startBtn.onClick.RemoveListener(wHMM.startButton);
+                lbwindow.startBtn.onClick.AddListener(lbwindow.ReadyBtn);
+                
+
+            }
+            else
+            {
+                lbwindow.startBtn.onClick.AddListener(lbwindow.StartButtonFonction);
+                
+            }
+        }
     }
 
     public override void OnStartLocalPlayer()
@@ -217,6 +347,7 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
             + " join the game");        
         CmdSetupPlayer(userName);
         CmdSetupPlayerImg(userName,1);
+       
     }
 
 
@@ -225,6 +356,28 @@ public class waintingHallPlayerScrpit : NetworkBehaviour
         //lbwindow.SendMessageToChat("[" + System.DateTime.Now + "] " + userName
         //  + " leave the game",Message.MessageType.info);
         //DeletePlayer(userName);  
+    }
+
+    public bool getUserReadyState(string name)
+    {
+        bool state = false;
+        if(name.Equals(player1Name))
+        {
+            state = p1Ready;
+        }
+        if (name.Equals(player2Name))
+        {
+            state = p2Ready;
+        }
+        if (name.Equals(player3Name))
+        {
+            state = p3Ready;
+        }
+        if (name.Equals(player4Name))
+        {
+            state = p4Ready;
+        }
+        return state;
     }
 
     

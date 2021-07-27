@@ -98,6 +98,9 @@
     <Compile Include="Assets\Scrpits\setMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scrpits\PlayerMotor.cs" />
+    <Compile Include="Assets\Scrpits\PlayerController.cs" />
+    <Compile Include="Assets\Scrpits\PlayerSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

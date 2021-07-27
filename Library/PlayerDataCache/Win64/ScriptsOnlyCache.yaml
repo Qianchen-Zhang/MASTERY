@@ -1,14 +1,18 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - StartMainMenu
     - lobbyWindow
+    - playerScript
+    - sceneScrpit
     - waintingHallPlayerScrpit
     - waitingHallMainMenu
+    Mirror.Components.dll:
+    - Mirror.NetworkTransform
     Mirror.dll:
     - Mirror.NetworkIdentity
     - Mirror.NetworkManager
     - Mirror.NetworkManagerHUD
+    - Mirror.NetworkStartPosition
     - kcp2k.KcpTransport
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -37,81 +41,11 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
     com.unity.quicksearch.dll:
     - Unity.QuickSearch.SearchDatabase
   sceneClasses:
-    Assets/Scenes/start.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1480}
-    - Class: 114
-      Script: {instanceID: 1482}
-    - Class: 114
-      Script: {instanceID: 1568}
-    - Class: 114
-      Script: {instanceID: 1662}
-    - Class: 114
-      Script: {instanceID: 1814}
-    - Class: 114
-      Script: {instanceID: 2128}
-    - Class: 114
-      Script: {instanceID: 2480}
-    - Class: 114
-      Script: {instanceID: 2598}
-    - Class: 114
-      Script: {instanceID: 2640}
-    - Class: 114
-      Script: {instanceID: 3016}
-    - Class: 114
-      Script: {instanceID: 3122}
-    - Class: 114
-      Script: {instanceID: 4104}
-    - Class: 114
-      Script: {instanceID: 4218}
-    - Class: 114
-      Script: {instanceID: 4236}
-    - Class: 114
-      Script: {instanceID: 4550}
-    - Class: 114
-      Script: {instanceID: 4564}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
     Assets/Scenes/waitingHall.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -121,13 +55,25 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
     - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 65
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 102
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -144,7 +90,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1662}
     - Class: 114
+      Script: {instanceID: 1672}
+    - Class: 114
       Script: {instanceID: 1814}
+    - Class: 114
+      Script: {instanceID: 2128}
     - Class: 114
       Script: {instanceID: 2334}
     - Class: 114
@@ -172,9 +122,98 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3974}
     - Class: 114
+      Script: {instanceID: 4104}
+    - Class: 114
       Script: {instanceID: 4120}
     - Class: 114
       Script: {instanceID: 4218}
+    - Class: 114
+      Script: {instanceID: 4236}
+    - Class: 114
+      Script: {instanceID: 4354}
+    - Class: 114
+      Script: {instanceID: 4522}
+    - Class: 114
+      Script: {instanceID: 4550}
+    - Class: 114
+      Script: {instanceID: 4668}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/waitingHall1.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 102
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1480}
+    - Class: 114
+      Script: {instanceID: 1482}
+    - Class: 114
+      Script: {instanceID: 1492}
+    - Class: 114
+      Script: {instanceID: 1672}
+    - Class: 114
+      Script: {instanceID: 1854}
+    - Class: 114
+      Script: {instanceID: 2138}
+    - Class: 114
+      Script: {instanceID: 2480}
+    - Class: 114
+      Script: {instanceID: 2598}
+    - Class: 114
+      Script: {instanceID: 2674}
+    - Class: 114
+      Script: {instanceID: 3016}
+    - Class: 114
+      Script: {instanceID: 3122}
+    - Class: 114
+      Script: {instanceID: 3220}
+    - Class: 114
+      Script: {instanceID: 4354}
     - Class: 114
       Script: {instanceID: 4522}
     - Class: 114
@@ -182,6 +221,8 @@ ScriptsOnlyBuild:
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -462,7 +503,7 @@ ScriptsOnlyBuild:
     className: RoomGUI
   - hash:
       serializedVersion: 2
-      Hash: fab5953d40b58be1774cd394a8e44201
+      Hash: e9ba90691f2cfeaace04470e07aa12ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: waintingHallPlayerScrpit
@@ -690,7 +731,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: b977f6d3037cf22a1b175ec247896a62
+      Hash: d14e59989c3e0c94a35084ea4ca909f7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: lobbyWindow
@@ -858,7 +899,7 @@ ScriptsOnlyBuild:
     className: NetworkTransform
   - hash:
       serializedVersion: 2
-      Hash: 5b8d1cfd92b51189725ccb76e3acb5ae
+      Hash: 9b8928c1c3e0a1e1c017ced40e2752ee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: waitingHallMainMenu
@@ -1320,6 +1361,6 @@ ScriptsOnlyBuild:
     className: NetworkRoomPlayerExt
   platform: 19
   scenePathNames:
-  - Assets/Scenes/start.unity
   - Assets/Scenes/waitingHall.unity
+  - Assets/Scenes/waitingHall1.unity
   playerPath: C:/Users/zzz/Desktop/MASTERY/test/Game_stage.exe
