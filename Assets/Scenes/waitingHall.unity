@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.07071111, b: 0.9150943, a: 1}
+  m_Color: {r: 0, g: 0.2391901, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -579,6 +579,7 @@ MonoBehaviour:
   chatPanel: {fileID: 1023523168}
   textObject: {fileID: 7625999588338326229, guid: ed5c0de82240bd643976e0790958d5b5, type: 3}
   userName: {fileID: 623465245}
+  StartBtn: {fileID: 1964363844}
   player1: {fileID: 1110085451}
   player2: {fileID: 1767435325}
   player3: {fileID: 36362872}
@@ -587,12 +588,13 @@ MonoBehaviour:
   player2Btn: {fileID: 2048528699}
   player3Btn: {fileID: 93221114}
   player4Btn: {fileID: 1004834129}
+  startBtn: {fileID: 1230951106}
   img:
   - {fileID: 0}
-  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
-  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
-  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
-  - {fileID: 21300000, guid: b0ffb5bae9f146e41b521ed7b2b2c319, type: 3}
+  - {fileID: 21300000, guid: 97e3cfa85b1503542bdbc2cf9df2f18c, type: 3}
+  - {fileID: 21300000, guid: b7016b5c3248f1b4e8e3da2752aef381, type: 3}
+  - {fileID: 21300000, guid: c13146d3d5c63994595c6b911c63949d, type: 3}
+  - {fileID: 21300000, guid: 9134d869d5d0088409a85f09d7042628, type: 3}
   playerMessage:
     serializedVersion: 2
     rgba: 4278190335
@@ -607,6 +609,8 @@ MonoBehaviour:
     rgba: 4294902006
   whPs: {fileID: -5358920477185390900, guid: 9bd99ae6a9df4e64aba7a2a7425e32e5, type: 3}
   needSendBackName: 0
+  gamePlayerPrefab: {fileID: 3140584829725334054, guid: 27013f37e1c955645a6e4fbe320bc4af, type: 3}
+  net: {fileID: 629526255}
   messageList: []
 --- !u!114 &339095724
 MonoBehaviour:
@@ -2256,7 +2260,31 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
+      - m_Target: {fileID: 339095723}
+        m_TargetAssemblyTypeName: lobbyWindow, Assembly-CSharp
+        m_MethodName: ReadyBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 339095723}
+        m_TargetAssemblyTypeName: lobbyWindow, Assembly-CSharp
+        m_MethodName: StartButtonFonction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1230951107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,6 +2500,7 @@ MonoBehaviour:
   player4: {fileID: 1004834129}
   playerPosition: 0
   mapName: map1
+  whPs: {fileID: 0}
 --- !u!114 &1263478985
 MonoBehaviour:
   m_ObjectHideFlags: 0

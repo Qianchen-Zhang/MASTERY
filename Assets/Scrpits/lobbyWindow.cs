@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
+using UnityEngine.SceneManagement;
 
 public class lobbyWindow : MonoBehaviour
 {
@@ -17,9 +18,10 @@ public class lobbyWindow : MonoBehaviour
     //public TMP_Text chatHistory;
     //public Scrollbar scrollbar;
     public GameObject chatPanel, textObject;
-    public TMP_Text userName;
+    public TMP_Text userName, StartBtn;
     public TMP_Text player1, player2, player3, player4;
     public GameObject player1Btn, player2Btn, player3Btn, player4Btn;
+    public Button startBtn;
     public Sprite[] img = new Sprite[5];
 
     public Color32 playerMessage, info, myMessage, otherPlayerMessage;
@@ -27,7 +29,11 @@ public class lobbyWindow : MonoBehaviour
     public waintingHallPlayerScrpit whPs;
 
     public bool needSendBackName = false;
-   
+
+    public GameObject gamePlayerPrefab;
+
+    public NetworkManager net ;
+
     [SerializeField]
     List<Message> messageList = new List<Message>();
 
@@ -115,7 +121,7 @@ public class lobbyWindow : MonoBehaviour
     public void Start()
     {
         //whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
-        //userName.text = PlayerPrefs.GetString("UserName") + ":";
+        userName.text = PlayerPrefs.GetString("UserName") + ":";
         //SendMessageToChat("[" + System.DateTime.Now + "] " + PlayerPrefs.GetString("UserName") 
           //  + " join the game",Message.MessageType.myMessage);
         //whPs.CmdSendPlayerMessage("Hello");
@@ -239,6 +245,48 @@ public class lobbyWindow : MonoBehaviour
         }
     }
 
+    public void ReadyBtn()
+    {
+        whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
+        if(whPs != null)
+        {
+            if (whPs.getUserReadyState(whPs.userName))
+            {
+                whPs.CmdReady(whPs.userName);
+                Debug.Log(whPs.userName + " cancel Ready");
+            }
+            else
+            {
+                whPs.CmdReady(whPs.userName);
+                Debug.Log(whPs.userName + " Ready");
+            }
+            
+        }
+        
+    }
+
+    public void StartButtonFonction()
+    {
+
+       
+        whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
+        whPs.p1Ready = true;
+        if (whPs.p1Ready && whPs.player1Img != 0)
+        {
+            Debug.Log("start");
+            //net.playerPrefab = gamePlayerPrefab;
+            whPs.RpcGamePrefabs();
+            
+            net.ServerChangeScene("waitingHall1");
+
+            
+            //SceneManager.LoadScene("waitingHall1");
+            
+        }
+        else
+            Debug.Log("Someone not ready!");
+    }
+
 
 
 
@@ -262,4 +310,9 @@ public class Message
         
     }
 
+
+    
 }
+
+
+

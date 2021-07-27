@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
+using Mirror;
 
 public class waitingHallMainMenu : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class waitingHallMainMenu : MonoBehaviour
     public GameObject player1, player2, player3, player4;
     public int playerPosition;
     public string mapName = "map1";
+    public waintingHallPlayerScrpit whPs;
     
 
     // Start is called before the first frame update
@@ -39,31 +41,70 @@ public class waitingHallMainMenu : MonoBehaviour
     
     public void Player1Button()
     {
-        resetPlayerButtonName();
-        player1Name.text = PlayerPrefs.GetString("UserName");
-        playerPosition = 1;
-        PlayerPrefs.SetInt("userPosition1", 1);
+        whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
+        if (whPs.player1Img > 0 && whPs.isLocalPlayer)
+        {
+            if (whPs.player1Img < 4)
+            {
+                //int i = whPs.player1Img+1;
+                //whPs.CmdSetupPlayerImg("ishost", i);
+                whPs.player1Img++;
+            }
+            else
+            {
+                //whPs.CmdSetupPlayerImg("ishost", 1);
+                whPs.player1Img = 1;
+            }
+        }
+
     }
     public void Player2Button()
     {
-        resetPlayerButtonName();
-        player2Name.text = PlayerPrefs.GetString("UserName");
-        playerPosition = 2;
-        PlayerPrefs.SetInt("userPosition2", 2);
+        whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
+        if (whPs.player2Img > 0 && whPs.isLocalPlayer)
+        {
+            if (whPs.player2Img < 4)
+            {
+                int i = whPs.player2Img + 1;
+                whPs.CmdSetupPlayerImg(PlayerPrefs.GetString("UserName"), i);
+            }
+            else
+            {
+                whPs.CmdSetupPlayerImg(PlayerPrefs.GetString("UserName"), 1);
+            }
+        }
     }
     public void Player3Button()
     {
-        resetPlayerButtonName();
-        player3Name.text = PlayerPrefs.GetString("UserName");
-        playerPosition = 3;
-        PlayerPrefs.SetInt("userPosition3", 3);
+        whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
+        if (whPs.player3Img > 0 && whPs.isLocalPlayer)
+        {
+            if (whPs.player3Img < 4)
+            {
+                int i = whPs.player3Img + 1;
+                whPs.CmdSetupPlayerImg(PlayerPrefs.GetString("UserName"), i);
+            }
+            else
+            {
+                whPs.CmdSetupPlayerImg(PlayerPrefs.GetString("UserName"), 1);
+            }
+        }
     }
     public void Player4Button()
     {
-        resetPlayerButtonName();
-        player4Name.text = PlayerPrefs.GetString("UserName");
-        playerPosition = 4;
-        PlayerPrefs.SetInt("userPosition4", 4);
+        whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
+        if (whPs.player4Img > 0 && whPs.isLocalPlayer)
+        {
+            if (whPs.player4Img < 4)
+            {
+                int i = whPs.player4Img + 1;
+                whPs.CmdSetupPlayerImg(PlayerPrefs.GetString("UserName"), i);
+            }
+            else
+            {
+                whPs.CmdSetupPlayerImg(PlayerPrefs.GetString("UserName"), 1);
+            }
+        }
     }
 
     public void resetPlayerButtonName()
