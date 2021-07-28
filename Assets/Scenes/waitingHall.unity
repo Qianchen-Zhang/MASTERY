@@ -609,7 +609,7 @@ MonoBehaviour:
     rgba: 4294902006
   whPs: {fileID: -5358920477185390900, guid: 9bd99ae6a9df4e64aba7a2a7425e32e5, type: 3}
   needSendBackName: 0
-  gamePlayerPrefab: {fileID: 3140584829725334054, guid: 27013f37e1c955645a6e4fbe320bc4af, type: 3}
+  gamePlayerPrefab: {fileID: 3180674076577121536, guid: 8492f657f48cdcc4187a59508292f327, type: 3}
   net: {fileID: 629526255}
   messageList: []
 --- !u!114 &339095724
@@ -1646,8 +1646,9 @@ MonoBehaviour:
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 606244405041404514, guid: 9bd99ae6a9df4e64aba7a2a7425e32e5, type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
-  spawnPrefabs: []
+  playerSpawnMethod: 1
+  spawnPrefabs:
+  - {fileID: 3180674076577121536, guid: 8492f657f48cdcc4187a59508292f327, type: 3}
 --- !u!4 &629526256
 Transform:
   m_ObjectHideFlags: 0
