@@ -277,7 +277,7 @@ public class lobbyWindow : MonoBehaviour
             //net.playerPrefab = gamePlayerPrefab;
             whPs.RpcGamePrefabs();
             
-            net.ServerChangeScene("waitingHall1");
+            net.ServerChangeScene("map1");
 
             
             //SceneManager.LoadScene("waitingHall1");

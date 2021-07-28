@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/waitingHall.unity
     guid: 1818436040032d1428fe67d3d0a8e028
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/maps/map1.unity
     guid: 71fd14422c331e54499c5a0ae7d659b1
   - enabled: 0
@@ -23,7 +23,31 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Mirror/Examples/Chat/Scenes/Main.unity
     guid: f4e8d4de4484e44bba666f2d1f66c73e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/waitingHall1.unity
     guid: 8c65d583585f3394783964f19b6e8f8e
+  - enabled: 0
+    path: Assets/Mirror/Examples/MultipleAdditiveScenes/Scenes/Main.unity
+    guid: 0fa8b7965660de64f8aefd6b64f18a08
+  - enabled: 0
+    path: Assets/Mirror/Examples/MultipleAdditiveScenes/Scenes/Game.unity
+    guid: d45ed07e5475d4740812c97ae565255c
+  - enabled: 0
+    path: Assets/Mirror/Examples/Room/Scenes/OfflineScene.unity
+    guid: 9e6f14982412b2545a0911ebaaa46a23
+  - enabled: 0
+    path: Assets/Mirror/Examples/Room/Scenes/OnlineScene.unity
+    guid: d7a6763559b31854586c9e49916273ef
+  - enabled: 0
+    path: Assets/Mirror/Examples/Room/Scenes/RoomScene.unity
+    guid: 48478f4d522f96945b8396f376299d3a
+  - enabled: 0
+    path: Assets/Scenes/networktest/oflline.unity
+    guid: 31e9edba0bc1514458d8e1674f0014dc
+  - enabled: 0
+    path: Assets/Scenes/networktest/online.unity
+    guid: e34d127a99b42fe41b03a1b04bafcb05
+  - enabled: 0
+    path: Assets/Scenes/networktest/room.unity
+    guid: c339b9ac55a307b4ab39146d8a12a1e0
   m_configObjects: {}
