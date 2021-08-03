@@ -1,13 +1,15 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AI_Behaviour
+    - ChasePlayer
+    - HurtPlayer
+    - Patrol
     - PlayerController
     - PlayerInfo
     - PlayerMotor
     - PlayerSetup
-    - lobbyWindow
-    - waintingHallPlayerScrpit
-    - waitingHallMainMenu
+    - checkPosition
     Mirror.Components.dll:
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
@@ -27,6 +29,14 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -67,6 +77,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -77,118 +89,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
-    - Class: 102
+    - Class: 91
       Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1480}
-    - Class: 114
-      Script: {instanceID: 1482}
-    - Class: 114
-      Script: {instanceID: 1492}
-    - Class: 114
-      Script: {instanceID: 1562}
-    - Class: 114
-      Script: {instanceID: 1568}
-    - Class: 114
-      Script: {instanceID: 1662}
-    - Class: 114
-      Script: {instanceID: 1814}
-    - Class: 114
-      Script: {instanceID: 1858}
-    - Class: 114
-      Script: {instanceID: 2482}
-    - Class: 114
-      Script: {instanceID: 2600}
-    - Class: 114
-      Script: {instanceID: 2642}
-    - Class: 114
-      Script: {instanceID: 2676}
-    - Class: 114
-      Script: {instanceID: 3018}
-    - Class: 114
-      Script: {instanceID: 3028}
-    - Class: 114
-      Script: {instanceID: 3124}
-    - Class: 114
-      Script: {instanceID: 3222}
-    - Class: 114
-      Script: {instanceID: 3324}
-    - Class: 114
-      Script: {instanceID: 3448}
-    - Class: 114
-      Script: {instanceID: 3756}
-    - Class: 114
-      Script: {instanceID: 3978}
-    - Class: 114
-      Script: {instanceID: 4124}
-    - Class: 114
-      Script: {instanceID: 4222}
-    - Class: 114
-      Script: {instanceID: 4248}
-    - Class: 114
-      Script: {instanceID: 4360}
-    - Class: 114
-      Script: {instanceID: 4528}
-    - Class: 114
-      Script: {instanceID: 4620}
-    - Class: 114
-      Script: {instanceID: 4676}
-    - Class: 114
-      Script: {instanceID: 21150}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
-    - Class: 143
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    - Class: 850595691
-      Script: {instanceID: 0}
-    Assets/Scenes/waitingHall.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 102
       Script: {instanceID: 0}
@@ -215,19 +118,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2130}
     - Class: 114
-      Script: {instanceID: 2336}
-    - Class: 114
       Script: {instanceID: 2482}
     - Class: 114
       Script: {instanceID: 2600}
     - Class: 114
       Script: {instanceID: 2642}
     - Class: 114
+      Script: {instanceID: 2676}
+    - Class: 114
       Script: {instanceID: 3018}
     - Class: 114
       Script: {instanceID: 3028}
-    - Class: 114
-      Script: {instanceID: 3074}
     - Class: 114
       Script: {instanceID: 3124}
     - Class: 114
@@ -236,8 +137,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3324}
     - Class: 114
       Script: {instanceID: 3448}
-    - Class: 114
-      Script: {instanceID: 3638}
     - Class: 114
       Script: {instanceID: 3756}
     - Class: 114
@@ -262,6 +161,18 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4620}
     - Class: 114
       Script: {instanceID: 4676}
+    - Class: 114
+      Script: {instanceID: 17964}
+    - Class: 114
+      Script: {instanceID: 28420}
+    - Class: 114
+      Script: {instanceID: 28488}
+    - Class: 114
+      Script: {instanceID: 28494}
+    - Class: 114
+      Script: {instanceID: 29194}
+    - Class: 114
+      Script: {instanceID: 29200}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -272,6 +183,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
@@ -281,6 +194,10 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
+      Script: {instanceID: 0}
+    - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -477,7 +394,7 @@ ScriptsOnlyBuild:
     className: sceneScrpit
   - hash:
       serializedVersion: 2
-      Hash: c08b673a2368599cf7263ce1d069ebdb
+      Hash: 6fcc192b6c9a2932628fb06287cf0fad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMotor
@@ -1287,7 +1204,7 @@ ScriptsOnlyBuild:
     className: NetworkMatchChecker
   - hash:
       serializedVersion: 2
-      Hash: 91b6da48d064fe4e29c9a22f5f47cfdd
+      Hash: fd2b546b59a957f614f73f804e111705
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -1429,8 +1346,37 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 56195debdcbd7f99e871ce0efbcbea36
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AI_Behaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 15ee75cc40043762cf62ec0d2890e832
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChasePlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 2739846102698c3e9dff1eff03a2d19b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: checkPosition
+  - hash:
+      serializedVersion: 2
+      Hash: 15ee75cc40043762cf62ec0d2890e832
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HurtPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: e895de67249c577c5d9cc2a6ea3290a6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Patrol
   platform: 19
   scenePathNames:
-  - Assets/Scenes/waitingHall.unity
   - Assets/Scenes/maps/map1.unity
   playerPath: C:/Users/zzz/Desktop/MASTERY/test/Game_stage.exe

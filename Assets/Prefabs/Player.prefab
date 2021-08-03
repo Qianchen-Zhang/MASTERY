@@ -1052,9 +1052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fdc6b5a0528184eb6b7951a9ed58ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  mouseSensitivityX: 6
-  mouseSensitivityY: 3
+  speed: 8
+  mouseSensitivityX: 10
+  mouseSensitivityY: 10
   lobbyWindow: {fileID: 3981565690619514452}
 --- !u!114 &7623054862041170896
 MonoBehaviour:
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   PlayerBody: {fileID: 7818773535633929357}
   statusText: 
   playerList: []
+  playerReadyNum: 0
 --- !u!114 &6755880897417588405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,6 +1112,7 @@ MonoBehaviour:
   canavsStatusText: {fileID: 819176394681056719}
   readyBtn: {fileID: 6246214217799408858}
   isReady: 0
+  net: {fileID: 0}
   messageList: []
 --- !u!1 &3341077295033850908
 GameObject:

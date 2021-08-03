@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/setting.unity
     guid: 3e55aaedace459048861becdf180ffe5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/waitingHall.unity
     guid: 1818436040032d1428fe67d3d0a8e028
   - enabled: 1
@@ -42,12 +42,12 @@ EditorBuildSettings:
     path: Assets/Mirror/Examples/Room/Scenes/RoomScene.unity
     guid: 48478f4d522f96945b8396f376299d3a
   - enabled: 0
-    path: Assets/Scenes/networktest/oflline.unity
-    guid: 31e9edba0bc1514458d8e1674f0014dc
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/networktest/online.unity
-    guid: e34d127a99b42fe41b03a1b04bafcb05
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/networktest/room.unity
-    guid: c339b9ac55a307b4ab39146d8a12a1e0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

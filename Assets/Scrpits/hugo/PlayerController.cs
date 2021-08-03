@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float mouseSensitivityY = 3f;
 
+    [SerializeField]
+    private float jumpForce = 100f;
+
     private PlayerMotor motor;
 
     public GameObject lobbyWindow;
