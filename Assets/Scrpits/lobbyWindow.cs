@@ -268,23 +268,99 @@ public class lobbyWindow : MonoBehaviour
     public void StartButtonFonction()
     {
 
+        
        
         whPs = NetworkClient.connection.identity.GetComponent<waintingHallPlayerScrpit>();
         whPs.p1Ready = true;
-        if (whPs.p1Ready && whPs.player1Img != 0)
+
+        //switch (net.numPlayers)
+        //{
+        //    case 0:
+        //        Debug.Log("dont have player!");
+        //        break;
+        //    case 1:
+        //        if (whPs.p1Ready)
+        //        {
+        //            Debug.Log("start");
+        //            //net.playerPrefab = gamePlayerPrefab;
+        //            whPs.RpcGamePrefabs();
+
+        //            net.ServerChangeScene("map1");
+
+
+        //            //SceneManager.LoadScene("waitingHall1");
+
+        //        }
+        //        else
+        //            Debug.Log("Someone not ready!");
+        //        break;
+        //    case 2:
+        //        if (whPs.p2Ready)
+        //        {
+        //            Debug.Log("start");
+        //            //net.playerPrefab = gamePlayerPrefab;
+        //            whPs.RpcGamePrefabs();
+
+        //            net.ServerChangeScene("map1");
+
+
+        //            //SceneManager.LoadScene("waitingHall1");
+
+        //        }
+        //        else
+        //            Debug.Log("Someone not ready!");
+        //        break;
+        //    case 3:
+        //        if (whPs.p2Ready && whPs.p3Ready)
+        //        {
+        //            Debug.Log("start");
+        //            //net.playerPrefab = gamePlayerPrefab;
+        //            whPs.RpcGamePrefabs();
+
+        //            net.ServerChangeScene("map1");
+
+
+        //            //SceneManager.LoadScene("waitingHall1");
+
+        //        }
+        //        else
+        //            Debug.Log("Someone not ready!");
+        //        break;
+        //    case 4:
+        //        if (whPs.p2Ready && whPs.p3Ready && whPs.p4Ready)
+        //        {
+        //            Debug.Log("start");
+        //            //net.playerPrefab = gamePlayerPrefab;
+        //            whPs.RpcGamePrefabs();
+
+        //            net.ServerChangeScene("map1");
+
+
+        //            //SceneManager.LoadScene("waitingHall1");
+
+        //        }
+        //        else
+        //            Debug.Log("Someone not ready!");
+        //        break;
+        if (whPs.p1Ready)
         {
             Debug.Log("start");
             //net.playerPrefab = gamePlayerPrefab;
             whPs.RpcGamePrefabs();
-            
+
             net.ServerChangeScene("map1");
 
-            
+
             //SceneManager.LoadScene("waitingHall1");
-            
+
         }
         else
             Debug.Log("Someone not ready!");
+ 
+
+
+
+       
     }
 
 

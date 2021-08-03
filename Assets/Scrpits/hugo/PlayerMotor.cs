@@ -11,8 +11,11 @@ public class PlayerMotor : MonoBehaviour
 
     private Vector3 velocity;
     private Vector3 rotation;
+    private Vector3 jump;
     private float cameraRotationX = 0f;
     private float currentCameraRotationX = 0f;
+
+    public float friction = 0.1f;
 
     [SerializeField]
     private float cameraRotationLimit = 85f;
@@ -32,6 +35,11 @@ public class PlayerMotor : MonoBehaviour
     public void Rotate(Vector3 _rotation)
     {
         rotation = _rotation;
+    }
+
+    public void Jump(Vector3 _jump)
+    {
+        jump = _jump;
     }
 
     public void RotateCamera(float _cameraRotationX)
@@ -62,5 +70,13 @@ public class PlayerMotor : MonoBehaviour
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
         cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+    }
+
+    private void PerformJump()
+    {
+        if (jump.magnitude > 0)
+        {
+            jump -= transform.forward * Time.deltaTime * friction;
+        }
     }
 }
