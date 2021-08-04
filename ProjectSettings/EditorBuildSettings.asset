@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/setting.unity
     guid: 3e55aaedace459048861becdf180ffe5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/waitingHall.unity
     guid: 1818436040032d1428fe67d3d0a8e028
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/maps/map1.unity
     guid: 71fd14422c331e54499c5a0ae7d659b1
   - enabled: 0
@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Mirror/Examples/Chat/Scenes/Main.unity
     guid: f4e8d4de4484e44bba666f2d1f66c73e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/waitingHall1.unity
     guid: 8c65d583585f3394783964f19b6e8f8e
   m_configObjects: {}
