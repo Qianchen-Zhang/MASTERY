@@ -24,9 +24,20 @@ public class PlayerController : MonoBehaviour
     public GameObject lobbyWindow;
 
 
+
     private void Start()
     {
         motor = GetComponent<PlayerMotor>();
+    }
+
+
+    public void LateUpdate()
+    {
+        Vector3 newPosition = this.transform.position;
+        newPosition.y = motor.miniCam.transform.position.y;
+        motor.miniCam.transform.position = newPosition;
+
+        motor.miniCam.transform.rotation = Quaternion.Euler(90f, this.transform.eulerAngles.y, 0f);
     }
 
     private void Update()
@@ -34,7 +45,7 @@ public class PlayerController : MonoBehaviour
         if (!lobbyWindow.activeSelf)
         {
             float xMov = Input.GetAxisRaw("Horizontal");
-            float zMov = Input.GetAxisRaw("Vertical");
+              float zMov = Input.GetAxisRaw("Vertical");
 
             Vector3 moveHorizontal = transform.right * xMov;
             Vector3 moveVertical = transform.forward * zMov;
