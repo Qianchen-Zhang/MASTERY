@@ -10,7 +10,11 @@ ScriptsOnlyBuild:
     - PlayerMotor
     - PlayerSetup
     - checkPosition
+    - miniMapScript
+    - minionManager
+    - minionSpawn
     Mirror.Components.dll:
+    - Mirror.NetworkAnimator
     - Mirror.NetworkTransform
     - Mirror.NetworkTransformChild
     Mirror.dll:
@@ -32,10 +36,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -51,6 +53,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
@@ -87,6 +90,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -116,63 +121,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1858}
     - Class: 114
-      Script: {instanceID: 2130}
+      Script: {instanceID: 2080}
     - Class: 114
-      Script: {instanceID: 2482}
+      Script: {instanceID: 2132}
     - Class: 114
-      Script: {instanceID: 2600}
+      Script: {instanceID: 2284}
     - Class: 114
-      Script: {instanceID: 2642}
+      Script: {instanceID: 2290}
     - Class: 114
-      Script: {instanceID: 2676}
+      Script: {instanceID: 2486}
     - Class: 114
-      Script: {instanceID: 3018}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 3028}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 3124}
+      Script: {instanceID: 2680}
     - Class: 114
-      Script: {instanceID: 3222}
+      Script: {instanceID: 3022}
     - Class: 114
-      Script: {instanceID: 3324}
+      Script: {instanceID: 3032}
     - Class: 114
-      Script: {instanceID: 3448}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3756}
+      Script: {instanceID: 3130}
     - Class: 114
-      Script: {instanceID: 3978}
+      Script: {instanceID: 3228}
     - Class: 114
-      Script: {instanceID: 4108}
+      Script: {instanceID: 3330}
     - Class: 114
-      Script: {instanceID: 4124}
+      Script: {instanceID: 3454}
     - Class: 114
-      Script: {instanceID: 4222}
+      Script: {instanceID: 3592}
     - Class: 114
-      Script: {instanceID: 4240}
+      Script: {instanceID: 3764}
     - Class: 114
-      Script: {instanceID: 4248}
+      Script: {instanceID: 3986}
     - Class: 114
-      Script: {instanceID: 4360}
+      Script: {instanceID: 4116}
     - Class: 114
-      Script: {instanceID: 4528}
+      Script: {instanceID: 4132}
     - Class: 114
-      Script: {instanceID: 4556}
+      Script: {instanceID: 4208}
     - Class: 114
-      Script: {instanceID: 4620}
+      Script: {instanceID: 4232}
     - Class: 114
-      Script: {instanceID: 4676}
+      Script: {instanceID: 4250}
     - Class: 114
-      Script: {instanceID: 17964}
+      Script: {instanceID: 4258}
     - Class: 114
-      Script: {instanceID: 28420}
+      Script: {instanceID: 4370}
     - Class: 114
-      Script: {instanceID: 28488}
+      Script: {instanceID: 4372}
     - Class: 114
-      Script: {instanceID: 28494}
+      Script: {instanceID: 4540}
     - Class: 114
-      Script: {instanceID: 29194}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 29200}
+      Script: {instanceID: 4632}
+    - Class: 114
+      Script: {instanceID: 4686}
+    - Class: 114
+      Script: {instanceID: 4688}
+    - Class: 114
+      Script: {instanceID: 4758}
+    - Class: 114
+      Script: {instanceID: 17242}
+    - Class: 114
+      Script: {instanceID: 20822}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -394,7 +409,7 @@ ScriptsOnlyBuild:
     className: sceneScrpit
   - hash:
       serializedVersion: 2
-      Hash: 6fcc192b6c9a2932628fb06287cf0fad
+      Hash: 76a55fc71418b45d81b23c52cf550e55
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMotor
@@ -422,6 +437,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleAdditiveScenes
     className: MultiSceneNetManager
+  - hash:
+      serializedVersion: 2
+      Hash: 02aa9ea4ecc5aac043b32d26b9973e88
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Patrol
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -464,6 +485,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 4dd7a228dc20998781f25d69fa19db5f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: minionManager
   - hash:
       serializedVersion: 2
       Hash: 3fe74dd3b211760c4ed03510eafabc55
@@ -712,6 +739,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: cca120b19b264de2c3ea863201159965
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: minionSpawn
+  - hash:
+      serializedVersion: 2
       Hash: 69415240821be7986b27e72bf9609a30
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -836,6 +869,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 15ee75cc40043762cf62ec0d2890e832
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HurtPlayer
   - hash:
       serializedVersion: 2
       Hash: da4cc51a02ce84afe2cecd27cfe6997a
@@ -1048,6 +1087,12 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 15ee75cc40043762cf62ec0d2890e832
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChasePlayer
+  - hash:
+      serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1076,6 +1121,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Components.dll
     namespaceName: Mirror
     className: NetworkTransform
+  - hash:
+      serializedVersion: 2
+      Hash: 211ed58584ff6ad7d85fbfe1b67bd118
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AI_Behaviour
   - hash:
       serializedVersion: 2
       Hash: f3a8ccc18ad656ac8993b34a1b30984f
@@ -1228,6 +1279,12 @@ ScriptsOnlyBuild:
     className: TMP_ExampleScript_01
   - hash:
       serializedVersion: 2
+      Hash: 2739846102698c3e9dff1eff03a2d19b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: checkPosition
+  - hash:
+      serializedVersion: 2
       Hash: 4e55399bb1b81f08ab790913f62fbbac
     assemblyName: Mirror.dll
     namespaceName: Mirror
@@ -1348,34 +1405,10 @@ ScriptsOnlyBuild:
     className: NetworkRoomPlayerExt
   - hash:
       serializedVersion: 2
-      Hash: 56195debdcbd7f99e871ce0efbcbea36
+      Hash: 561f647088ef2b948ede12763364e3d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: AI_Behaviour
-  - hash:
-      serializedVersion: 2
-      Hash: 15ee75cc40043762cf62ec0d2890e832
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ChasePlayer
-  - hash:
-      serializedVersion: 2
-      Hash: 2739846102698c3e9dff1eff03a2d19b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: checkPosition
-  - hash:
-      serializedVersion: 2
-      Hash: 15ee75cc40043762cf62ec0d2890e832
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HurtPlayer
-  - hash:
-      serializedVersion: 2
-      Hash: e895de67249c577c5d9cc2a6ea3290a6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Patrol
+    className: miniMapScript
   platform: 19
   scenePathNames:
   - Assets/Scenes/maps/map1.unity

@@ -8,6 +8,7 @@ public class PlayerMotor : MonoBehaviour
 {
     [SerializeField]
     private Camera cam;
+    public  Camera miniCam;
 
     private Vector3 velocity;
     private Vector3 rotation;
@@ -25,11 +26,14 @@ public class PlayerMotor : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        miniCam = GameObject.Find("minimapCamera").GetComponent<Camera>();
+       
     }
 
     public void Move(Vector3 _velocity)
     {
         velocity = _velocity;
+       
     }
 
     public void Rotate(Vector3 _rotation)
@@ -45,6 +49,7 @@ public class PlayerMotor : MonoBehaviour
     public void RotateCamera(float _cameraRotationX)
     {
         cameraRotationX = _cameraRotationX;
+        
     }
 
 
@@ -70,6 +75,7 @@ public class PlayerMotor : MonoBehaviour
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
         cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+        
     }
 
     private void PerformJump()
