@@ -14,7 +14,7 @@ TagManager:
   - LocalPlayer
   - RemotePlayer
   - Weapon
-  - 
+  - DontDraw
   - 
   - 
   - 

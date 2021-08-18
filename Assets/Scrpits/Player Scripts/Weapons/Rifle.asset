@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923b77d440da66b478aad2fb1ff1f41e, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  name: Submachine Gun
+  damage: 8
+  range: 80
+  fireRate: 5
+  magazineSize: 30
+  reloadTime: 3
+  graphics: {fileID: 8092486483095802392, guid: 220c73bb95e2ff64b9d42ddf447a1793, type: 3}
+  shootSound: {fileID: 8300000, guid: 087e05278addeb8478ec354f88a97112, type: 3}
+  reloadSound: {fileID: 8300000, guid: 190eb92a20bf3e649af1255f58d3c293, type: 3}

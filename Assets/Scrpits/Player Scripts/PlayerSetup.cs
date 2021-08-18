@@ -1,6 +1,5 @@
-using Mirror;
 using UnityEngine;
-
+using Mirror;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerController))]
@@ -13,12 +12,19 @@ public class PlayerSetup : NetworkBehaviour
     private string remoteLayerName = "RemotePlayer";
 
     [SerializeField]
+    private string dontDrawLayerName = "DontDraw";
+
+    [SerializeField]
+    private GameObject playerGraphics;
+
+    [SerializeField]
+    private GameObject playerNameplateGraphics;
+
+    [SerializeField]
     private GameObject playerUIPrefab;
 
     [HideInInspector]
     public GameObject playerUIInstance;
-
-
 
     private void Start()
     {
@@ -29,10 +35,40 @@ public class PlayerSetup : NetworkBehaviour
         }
         else
         {
+            // Disable the local player's graphics
+            Util.SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
+            Util.SetLayerRecursively(playerNameplateGraphics, LayerMask.NameToLayer(dontDrawLayerName));
+
+            // Creation of the player UI
             playerUIInstance = Instantiate(playerUIPrefab);
+
+            // Setup the UI
+            PlayerUI ui = playerUIInstance.GetComponent<PlayerUI>();
+            if (ui == null)
+            {
+                Debug.LogError("No component PlayerUI on playerUIInstance");
+            }
+            else
+            {
+                ui.SetPlayer(GetComponent<Player>());
+            }
+
+            GetComponent<Player>().Setup();
+
+            CmdSetUsername(transform.name, UserAccountManager.LoggedInUsername);
         }
 
-        GetComponent<Player>().Setup();
+    }
+
+    [Command]
+    void CmdSetUsername(string playerID, string username)
+    {
+        Player player = GameManager.GetPlayer(playerID);
+        if (player != null)
+        {
+            Debug.Log(username + " has joined !");
+            player.username = username;
+        }
     }
 
     public override void OnStartClient()
@@ -44,6 +80,7 @@ public class PlayerSetup : NetworkBehaviour
 
         GameManager.RegisterPlayer(netId, player);
     }
+
     private void AssignRemoteLayer()
     {
         gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
@@ -57,16 +94,15 @@ public class PlayerSetup : NetworkBehaviour
         }
     }
 
-
     private void OnDisable()
     {
         Destroy(playerUIInstance);
 
-        GameManager.instance.SetSceneCameraActive(true);
+        if (isLocalPlayer)
+        {
+            GameManager.instance.SetSceneCameraActive(true);
+        }
 
         GameManager.UnregisterPlayer(transform.name);
     }
-
-
-
 }

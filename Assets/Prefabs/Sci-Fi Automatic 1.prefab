@@ -9702,6 +9702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2379647862364485447}
   - component: {fileID: 5468943088346314993}
+  - component: {fileID: 620650596}
   m_Layer: 0
   m_Name: Sci-Fi Automatic 1
   m_TagString: Untagged
@@ -9718,7 +9719,7 @@ Transform:
   m_GameObject: {fileID: 6400854122243989144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.285984, y: 1, z: -11.904276}
-  m_LocalScale: {x: 1.5, y: 1.500001, z: 1.500001}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 385480292852805536}
   - {fileID: 7807095576401196209}
@@ -9739,3 +9740,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4385677043559179350}
   hitEffectPrefab: {fileID: 8837353149108343809, guid: c126a0554b6518745b3b151c0a2a57f8, type: 3}
+--- !u!95 &620650596
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6400854122243989144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe81d214eb256b940ba2fa23bcf293a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

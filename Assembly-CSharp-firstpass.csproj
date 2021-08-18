@@ -47,6 +47,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Standard Assets\ExplosionAndFireworksParticleSystems\Scripts\AfterburnerPhysicsForce.cs" />
      <Compile Include="Assets\Standard Assets\ExplosionAndFireworksParticleSystems\Scripts\ExplosionPhysicsForce.cs" />
      <Compile Include="Assets\Standard Assets\ExplosionAndFireworksParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
      <None Include="Assets\Standard Assets\ExplosionAndFireworksParticleSystems\ParticleSystemsGuidelines.txt" />

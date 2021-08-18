@@ -4,7 +4,6 @@ using Mirror;
 [RequireComponent(typeof(WeaponManager))]
 public class PlayerShoot : NetworkBehaviour
 {
-    
 
     [SerializeField]
     private Camera cam;
@@ -12,14 +11,14 @@ public class PlayerShoot : NetworkBehaviour
     [SerializeField]
     private LayerMask mask;
 
-    public PlayerWeapon currentWeapon;
+    private WeaponData currentWeapon;
     private WeaponManager weaponManager;
 
     void Start()
     {
-        if(cam == null)
+        if (cam == null)
         {
-            Debug.LogError("pas de caméra renseignée");
+            Debug.LogError("No camera rendering");
             this.enabled = false;
         }
 
@@ -30,27 +29,36 @@ public class PlayerShoot : NetworkBehaviour
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
 
-        if(currentWeapon.fireRate <= 0f)
+        if (PauseMenu.isOn)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && weaponManager.currentMagazineSize < currentWeapon.magazineSize)
+        {
+            StartCoroutine(weaponManager.Reload());
+            return;
+        }
+
+        if (currentWeapon.fireRate <= 0f)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
             }
         }
-
         else
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
-
             }
             else if (Input.GetButtonUp("Fire1"))
             {
                 CancelInvoke("Shoot");
             }
         }
-        
+
     }
 
     [Command]
@@ -66,47 +74,69 @@ public class PlayerShoot : NetworkBehaviour
         Destroy(hitEffect, 2f);
     }
 
+    // Warn the server the player shoot
     [Command]
     void CmdOnShoot()
     {
         RpcDoShootEffect();
     }
 
+    // Pop up shoot effects on all players 
     [ClientRpc]
     void RpcDoShootEffect()
     {
         weaponManager.GetCurrentGraphics().muzzleFlash.Play();
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(currentWeapon.shootSound);
     }
 
     [Client]
     private void Shoot()
     {
-        if(!isLocalPlayer)
+        if (!isLocalPlayer || weaponManager.isReloading)
         {
             return;
         }
+
+        if (weaponManager.currentMagazineSize <= 0)
+        {
+            StartCoroutine(weaponManager.Reload());
+            return;
+        }
+
+        weaponManager.currentMagazineSize--;
+
+        Debug.Log(weaponManager.currentMagazineSize + " bullets remaining in the magazine");
 
         CmdOnShoot();
 
         RaycastHit hit;
 
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentWeapon.range, mask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, currentWeapon.range, mask))
         {
-            if(hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player")
             {
-                CmdPlayerShot(hit.collider.name, currentWeapon.damage);
+                CmdPlayerShot(hit.collider.name, currentWeapon.damage, transform.name);
             }
 
             CmdOnHit(hit.point, hit.normal);
         }
+
+        if (weaponManager.currentMagazineSize <= 0)
+        {
+            StartCoroutine(weaponManager.Reload());
+            return;
+        }
     }
 
     [Command]
-    private void CmdPlayerShot(string playerId, float damage)
+    private void CmdPlayerShot(string playerId, float damage, string sourceID)
     {
-        Debug.Log(playerId + " a été touché.");
+        Debug.Log(playerId + " has been shot.");
 
         Player player = GameManager.GetPlayer(playerId);
-        player.RpcTakeDamage(damage);
+        player.RpcTakeDamage(damage, sourceID);
     }
+
 }

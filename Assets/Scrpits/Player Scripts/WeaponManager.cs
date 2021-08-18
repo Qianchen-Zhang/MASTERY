@@ -1,12 +1,14 @@
 using UnityEngine;
 using Mirror;
+using System.Collections;
 
 public class WeaponManager : NetworkBehaviour
 {
-    [SerializeField]
-    private PlayerWeapon primaryWeapon;
 
-    private PlayerWeapon currentWeapon;
+    [SerializeField]
+    private WeaponData primaryWeapon;
+
+    private WeaponData currentWeapon;
     private WeaponGraphics currentGraphics;
 
     [SerializeField]
@@ -15,12 +17,17 @@ public class WeaponManager : NetworkBehaviour
     [SerializeField]
     private string weaponLayerName = "Weapon";
 
+    [HideInInspector]
+    public int currentMagazineSize;
+
+    public bool isReloading = false;
+
     void Start()
     {
         EquipWeapon(primaryWeapon);
     }
 
-    public PlayerWeapon GetCurrentWeapon()
+    public WeaponData GetCurrentWeapon()
     {
         return currentWeapon;
     }
@@ -30,26 +37,64 @@ public class WeaponManager : NetworkBehaviour
         return currentGraphics;
     }
 
-    void EquipWeapon(PlayerWeapon _weapon)
+    public void EquipWeapon(WeaponData _weapon)
     {
         currentWeapon = _weapon;
+        currentMagazineSize = _weapon.magazineSize;
 
         GameObject weaponIns = Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = weaponIns.GetComponent<WeaponGraphics>();
-        
-        if(currentGraphics == null)
+
+        if (currentGraphics == null)
         {
-            Debug.LogError("Pas de script WeaponGraphics sur l'arme : " + weaponIns.name);
+            Debug.LogError("No script WeaponGraphics on the weapon : " + weaponIns.name);
         }
 
-        if(isLocalPlayer)
+        if (isLocalPlayer)
         {
             Util.SetLayerRecursively(weaponIns, LayerMask.NameToLayer(weaponLayerName));
         }
-
     }
 
-    
+    public IEnumerator Reload()
+    {
+        if (isReloading)
+        {
+            yield break;
+        }
+
+        Debug.Log("Reloading ...");
+
+        isReloading = true;
+
+        CmdOnReload();
+        yield return new WaitForSeconds(currentWeapon.reloadTime);
+        currentMagazineSize = currentWeapon.magazineSize;
+
+        isReloading = false;
+
+        Debug.Log("Reloading done !");
+    }
+
+    [Command]
+    void CmdOnReload()
+    {
+        RpcOnReload();
+    }
+
+    [ClientRpc]
+    void RpcOnReload()
+    {
+        Animator animator = currentGraphics.GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetTrigger("Reload");
+        }
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(currentWeapon.reloadSound);
+    }
+
 }

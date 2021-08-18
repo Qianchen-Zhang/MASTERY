@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,20 +15,23 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject sceneCamera;
 
-    public void Awake()
+    public delegate void OnPlayerKilledCallback(string player, string source);
+    public OnPlayerKilledCallback onPlayerKilledCallback;
+
+    private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             return;
         }
 
-        Debug.LogError("Plus d'une instance de GameManager dans la scène");
+        Debug.LogError("More than one GameManager instance in the scene");
     }
 
     public void SetSceneCameraActive(bool isActive)
     {
-        if(sceneCamera == null)
+        if (sceneCamera == null)
         {
             return;
         }
@@ -39,7 +43,6 @@ public class GameManager : MonoBehaviour
     {
         string playerId = playerIdPrefix + netID;
         players.Add(playerId, player);
-
         player.transform.name = playerId;
     }
 
@@ -53,4 +56,8 @@ public class GameManager : MonoBehaviour
         return players[playerId];
     }
 
+    public static Player[] GetAllPlayers()
+    {
+        return players.Values.ToArray();
+    }
 }
