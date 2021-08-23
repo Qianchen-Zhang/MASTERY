@@ -27,3 +27,4 @@ Things to add/improve :
 -Make the game balanced => change weapons settings (range, damages, firerate, magazinesize and reloadtime) in Assets/scripts/player scripts/weapons
 -Add the right click to the sniper (zoom)
 -Improve reloading animations
+-Fix magazine bug (spam click shot faster than automatoc shot)

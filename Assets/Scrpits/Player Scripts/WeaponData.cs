@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponData", menuName = "My Game/Weapon Data")]
 public class WeaponData : ScriptableObject
 {
-    public string name = "Submachine Gun";
+    public string name = "Sci-Fi Automatic";
     public float damage = 10f;
     public float range = 100f;
 

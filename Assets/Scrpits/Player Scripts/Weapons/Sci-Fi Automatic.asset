@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923b77d440da66b478aad2fb1ff1f41e, type: 3}
   m_Name: Sci-Fi Automatic
   m_EditorClassIdentifier: 
-  name: Sci-Fi Automatic
+  name: Sci-Fi Automatic 1
   damage: 3
   range: 30
   fireRate: 8
